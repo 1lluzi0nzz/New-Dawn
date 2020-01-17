@@ -1,0 +1,32 @@
+package prereqpackage;
+
+import java.util.*;
+import org.newdawn.slick.*;
+import org.newdawn.slick.state.*;
+import org.lwjgl.input.Mouse;
+
+public class SoundMaster {
+
+	//AspEnemy
+	public static Sound ae1;
+	public static Sound ae2;
+	public static Sound ae3;
+	public static Sound ae4;
+	public static Sound ae5;
+	public static Sound ae6;
+	public static Sound ae7;
+	public static Sound ae8;
+	public static Sound ae9;
+	
+	public void setupAspirationEnemySounds() throws SlickException{
+		Sound ae1 = new Sound("snd/Voice/AspEnemy/EnemyIdentified.ogg");
+		Sound ae2 = new Sound("snd/Voice/AspEnemy/Grenade.ogg");
+		Sound ae3 = new Sound("snd/Voice/AspEnemy/HesThere.ogg");
+		Sound ae4 = new Sound("snd/Voice/AspEnemy/IGotOne.ogg");
+		Sound ae5 = new Sound("snd/Voice/AspEnemy/ImHurt.ogg");
+		Sound ae6 = new Sound("snd/Voice/AspEnemy/IncomingProjectile.ogg");
+		Sound ae7 = new Sound("snd/Voice/AspEnemy/injured.ogg");
+		Sound ae8 = new Sound("snd/Voice/AspEnemy/Moving.ogg");
+		Sound ae9 = new Sound("snd/Voice/AspEnemy/OnMyWay.ogg");
+	}
+}

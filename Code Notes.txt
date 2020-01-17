@@ -1,0 +1,15 @@
+ - Character
+	- Figure (Image) public
+	- Name (String) private
+	- PW Damage (int) public
+	- Health (int) public
+	- AbilityUsed (boolean) public
+	- CritChance (int) private
+ 
+ - Turn
+	- What do u want to do?
+	- decide if MOVE, DOUBLE MOVE, ATTACK(pw, sw), useABILITY
+	- if move, which char, ask where, validate
+	- if double move, which char, ask where, validate
+	- if attack, which of your characters, which enemy, validate
+	- if use ability, check codename, check usability, if up then do it, validate

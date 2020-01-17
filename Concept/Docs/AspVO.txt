@@ -1,0 +1,29 @@
+Line      
+	Quote
+	Quote 2
+-----------------------------------------
+Moving to Location
+	'On my way'
+	'Moving'
+
+Double Move (Sprint)
+	*Out of breath*
+
+Attacking Target
+	'Enemy Identified'
+	'I see him!'
+	'He's there'
+
+Taking Damage
+	'I'm Hurt!'
+	'Ahh'
+
+Shouting Grenade
+	'Incoming Projectile'
+	'What is that?'
+	'Grenade!'
+
+Death Noise
+
+Target Down
+	'I got one!'

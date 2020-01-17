@@ -1,0 +1,138 @@
+package prereqpackage;
+
+import org.lwjgl.input.Mouse;
+import org.newdawn.slick.*;
+import org.newdawn.slick.openal.AudioImpl;
+import org.newdawn.slick.state.BasicGameState;
+import org.newdawn.slick.state.GameState;
+import org.newdawn.slick.state.StateBasedGame;
+
+public class AspLvl1 extends BasicGameState {
+
+	public String mseX = "0";
+	public String mseY = "0";
+	GameMusic gm = new GameMusic();
+	SoundMaster sm = new SoundMaster();
+	
+	Unit enemy1;
+	Unit enemy2;
+	Unit enemy3;
+	Unit aaron;
+	Unit travis;
+	Unit maurice;
+	
+	int turnCount = 0;
+	
+	
+	public AspLvl1(int state){
+	}
+	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
+		initialize();
+	}
+	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
+		Image map = new Image("res/Level Assets/Story/asplvl1.png");
+		g.drawImage(map, 0, 0);
+		
+		g.setColor(Color.yellow);
+		g.drawString(mseX, 10, 90);
+		g.drawString(mseY, 10, 110);
+		
+		bufferCharactersPDA(g);
+		
+		
+		
+	}
+	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
+
+		Input i = gc.getInput();
+		gc.setShowFPS(false);
+		int mouseX = Mouse.getX();
+		int mouseY = Mouse.getY();
+		mseX = "X "+mouseX;
+		mseY = "Y "+mouseY;
+		
+		if(i.isKeyPressed(i.KEY_I)){
+			aaron.health++;
+			aaron.killUnit();
+			sm.playAspEnemyVoice(6, false);
+		}
+		
+		if(i.isKeyDown(i.KEY_ESCAPE)){
+			sbg.enterState(0);
+			gm.playmainMenuMusic(true);
+		}
+	}
+	private void initialize() throws SlickException{
+		
+		Image aaronHealthy = new Image("res/charAssets/Aaron Fetcher/aaronHealthy.png");
+		Image aaronHurt = new Image("res/charAssets/Aaron Fetcher/aaronHealthy.png");
+		Image aaronCritical = new Image("res/charAssets/Aaron Fetcher/aaronHealthy.png");
+		Image aaronDead = new Image("res/charAssets/Aaron Fetcher/aaronHealthy.png");
+		
+		Image travisHealthy = new Image("res/charAssets/Travis Taylor/travisHealthy.png");
+		Image travisHurt = new Image("res/charAssets/Travis Taylor/travisHealthy.png");
+		Image travisCritical = new Image("res/charAssets/Travis Taylor/travisHealthy.png");
+		Image travisDead = new Image("res/charAssets/Travis Taylor/travisHealthy.png");
+		
+		Image mauriceHealthy = new Image("res/charAssets/Maurice Tyrion/mauriceHealthy.png");
+		Image mauriceHurt = new Image("res/charAssets/Maurice Tyrion/mauriceHealthy.png");
+		Image mauriceCritical = new Image("res/charAssets/Maurice Tyrion/mauriceHealthy.png");
+		Image mauriceDead = new Image("res/charAssets/Maurice Tyrion/mauriceHealthy.png");
+		
+		Image enemyHealthy = new Image("res/charAssets/AspEnemy/enemyHealthy.png");
+		Image enemyHurt = new Image("res/charAssets/AspEnemy/enemyHurt.png");
+		Image enemyIncapacitated = new Image("res/charAssets/AspEnemy/enemyHurt.png");
+		Image enemyDead = new Image("res/charAssets/AspEnemy/enemyDead.png");
+		
+		enemyHealthy.rotate(180);
+		
+		aaron = new Unit(aaronHealthy, "Aaron Fetcher", 20, 100, false, 0);
+		travis = new Unit(travisHealthy, "Travis Taylor", 35, 100, false, 0);
+		maurice = new Unit(mauriceHealthy, "Maurice Tyrion", 26, 100, false, 0);
+		
+		enemy1 = new Unit(enemyHealthy, "Hostile 1", 15, 75, false, 0);
+		enemy2 = new Unit(enemyHealthy, "Hostile 2", 17, 100, false, 0);
+		enemy3 = new Unit(enemyHealthy, "Hostile 3", 24, 75, false, 0);
+	}
+	private void bufferCharactersPDA(Graphics g){
+		g.drawImage(aaron.status, 144, 648);
+		g.drawImage(travis.status, 288, 648);
+		g.drawImage(maurice.status, 430, 648);
+		
+		g.drawImage(enemy1.status, 0, 220);
+		g.drawImage(enemy2.status, 288, 220);
+		g.drawImage(enemy3.status, 642, 220);
+		
+		
+		g.setColor(Color.green);
+		g.drawString("AOS_"+Engine.userName, 945, 16);
+		g.drawString("TURN: "+turnCount, 1155, 16);
+		
+		g.setColor(Color.yellow);
+		g.drawString("Enter the warehouse\nand secure Miss Anderson.", 980, 650);
+		
+		g.setColor(Color.blue);
+		g.drawString("Your Team Status", 965, 68);
+		g.drawString(aaron.name, 965, 128);
+		g.drawString(travis.name, 965, 188);
+		g.drawString(maurice.name, 965, 244);
+		
+		g.drawString(""+aaron.health, 1230, 128);
+		g.drawString(""+travis.health, 1230, 188);
+		g.drawString(""+maurice.health, 1230, 244);
+		
+		g.setColor(Color.red);
+		g.drawString("Enemy Team Status", 965, 368);
+		g.drawString(enemy1.name, 965, 424);
+		g.drawString(enemy2.name, 965, 485);
+		g.drawString(enemy3.name, 965, 540);
+		
+		g.drawString(""+enemy1.health, 1230, 424);
+		g.drawString(""+enemy2.health, 1230, 485);
+		g.drawString(""+enemy3.health, 1230, 540);
+	}
+	
+	public int getID() {
+		return 13;
+	}
+}

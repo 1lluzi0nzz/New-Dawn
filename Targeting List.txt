@@ -1,0 +1,13 @@
+ALL
+	- Design Story
+
+Jacob
+	- Code the take turn mechanic
+	- Script AI moves
+
+Cyrus
+	- Finish the Images for Aaron, Travis, and Maurice
+	- Edit asplvl1 Details
+
+Caleb
+	- Work on story

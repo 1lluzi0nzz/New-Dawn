@@ -1,0 +1,25 @@
+INDEX VERSION 1.130+C:\Projects\New Dawn\zUtilities\EclipseWS\.metadata\.plugins\org.eclipse.jdt.core
+1093488887.index
+916900781.index
+2043626465.index
+2088728460.index
+1204375214.index
+2569137926.index
+3609888128.index
+3363692690.index
+823384711.index
+806062888.index
+4260576134.index
+710797068.index
+3545566055.index
+890887124.index
+3764974672.index
+3273689814.index
+100574398.index
+3173573501.index
+4121661813.index
+2872033403.index
+3070369728.index
+3607611967.index
+1177904427.index
+3487609244.index

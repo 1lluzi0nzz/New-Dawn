@@ -1,0 +1,139 @@
+package prereqpackage;
+
+import org.lwjgl.input.Mouse;
+import org.newdawn.slick.*;
+import org.newdawn.slick.state.*;
+
+import java.awt.Font;
+
+import javax.swing.*;
+
+public class MainMenu extends BasicGameState{
+	
+
+	public String mseX = "0";
+	public String mseY = "0";
+	
+	public boolean caHover;
+	public boolean loHover;
+	public boolean crHover;
+	public boolean exHover;
+	public boolean muHover;
+	public boolean skHover;
+	
+	
+	GameMusic gm = new GameMusic();
+
+	
+	public MainMenu(int state){
+		
+	}
+	public void init(GameContainer gc, StateBasedGame sbg) throws SlickException{
+
+		gm.playmainMenuMusic(true);
+		
+		caHover = false;
+		loHover = false;
+		crHover = false;
+		exHover = false;
+		muHover = false;
+		skHover = false;
+		
+	}
+	public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException{
+
+		Image bg = new Image("res/Menus/MainMenu.png");
+		if(caHover = true){
+			g.drawImage("res/Menus/Main/Camp2.png", 0, 0);
+		}
+		
+		g.drawImage(bg, 0, 0);
+		
+		//Setting menu Strings and Names
+		g.setColor(Color.black);
+		if(Engine.userName.length() > 15){
+			Engine.userName = Engine.userName.substring(0, 14);
+		}
+		if(Engine.userName.equals("")){
+			Engine.userName = "Commander";
+		}
+		g.drawString("Hello "+Engine.userName, 10, 140);
+		
+		//Getting mouse coordinates
+		g.setColor(Color.red);
+		g.drawString(mseX, 10, 90);
+		g.drawString(mseY, 10, 110);		
+		
+		g.setColor(Color.red);
+		g.drawString("New Dawn by Team Aerosentient", 0, 700);
+		g.drawString("Press T to go to Test Class", 0, 684);
+
+	}
+	public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException{
+		
+		
+		Input i = gc.getInput();
+		gc.setShowFPS(false);
+		int mouseX = Mouse.getX();
+		int mouseY = Mouse.getY();
+		
+		mseX = "X "+mouseX;
+		mseY = "Y "+mouseY;
+		
+		
+		//Campaign
+		if((mouseX >= 112  && mouseX <= 260) && (mouseY >= 388 && mouseY <= 435)){
+			caHover = true;
+			if(i.isMousePressed(0)){
+				sbg.enterState(11);
+			}
+		}
+		//Skirmish
+		if((mouseX >= 280  && mouseX <= 430) && (mouseY >= 383 && mouseY <= 436)){
+			loHover = true;
+			if(i.isMouseButtonDown(0)){
+				sbg.enterState(2);
+			}
+		}
+		//Multiplayer
+		if((mouseX >= 452  && mouseX <= 606) && (mouseY >= 388 && mouseY <= 436)){
+			muHover = true;
+			if(i.isMouseButtonDown(0)){
+				sbg.enterState(2);
+			}
+		}
+		//Lore
+		if((mouseX >= 188  && mouseX <= 336) && (mouseY >= 304 && mouseY <= 353)){
+			if(i.isMouseButtonDown(0)){
+				loHover = true;
+				sbg.enterState(4);
+				gm.playloreMusic(true);
+			}
+		}
+		//Credits
+		if((mouseX >= 380  && mouseX <= 532) && (mouseY >= 304 && mouseY <= 352)){
+			crHover = true;
+			if(i.isMouseButtonDown(0)){
+				gm.playcreditsMusic(true);
+				sbg.enterState(3);
+			}
+		}
+		//Test Class
+		if(i.isKeyDown(i.KEY_T)){
+			gm.playSnowMusic(true);
+			JOptionPane.showMessageDialog(null, "Welcome to the Test Map "+Engine.userName, "Greetings", JOptionPane.PLAIN_MESSAGE);
+			sbg.enterState(10);
+		}
+		//Exit
+		if((mouseX >= 76  && mouseX <= 180) && (mouseY >= 669 && mouseY <= 702)){
+			exHover = true;
+			if(i.isMouseButtonDown(0)){
+				gc.exit();
+			}	
+		}	
+	
+	}	
+	public int getID(){
+		return 0;
+	}
+}

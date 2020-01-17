@@ -1,0 +1,114 @@
+package prereqpackage;
+
+import java.util.*;
+import org.newdawn.slick.*;
+import org.newdawn.slick.state.*;
+import org.lwjgl.input.Mouse;
+
+public class SoundMaster {
+	
+	
+	//ASPIRATION ENEMY VOICES
+	public void playAE1(boolean loop) throws SlickException{
+		Sound ae1 = new Sound("snd/Voice/AspEnemy/EnemyIdentified.ogg");
+		if(loop == true){
+			ae1.loop();
+		}else{
+			ae1.play();
+		}
+	}
+	public void playAE2(boolean loop) throws SlickException{
+		Sound ae2 = new Sound("snd/Voice/AspEnemy/Grenade.ogg");
+		if(loop == true){
+			ae2.loop();
+		}else{
+			ae2.play();
+		}
+	}
+	public void playAE3(boolean loop) throws SlickException{
+		Sound ae3 = new Sound("snd/Voice/AspEnemy/HesThere.ogg");
+		if(loop == true){
+			ae3.loop();
+		}else{
+			ae3.play();
+		}
+	}
+	public void playAE4(boolean loop) throws SlickException{
+		Sound ae4 = new Sound("snd/Voice/AspEnemy/IGotOne.ogg");
+		if(loop == true){
+			ae4.loop();
+		}else{
+			ae4.play();
+		}
+	}
+	public void playAE5(boolean loop) throws SlickException{
+		Sound ae5 = new Sound("snd/Voice/AspEnemy/ImHurt.ogg");
+		if(loop == true){
+			ae5.loop();
+		}else{
+			ae5.play();
+		}
+	}
+	public void playAE6(boolean loop) throws SlickException{
+		Sound ae6 = new Sound("snd/Voice/AspEnemy/IncomingProjectile.ogg");
+		if(loop == true){
+			ae6.loop();
+		}else{
+			ae6.play();
+		}
+	}
+	public void playAE7(boolean loop) throws SlickException{
+		Sound ae7 = new Sound("snd/Voice/AspEnemy/injured.ogg");
+		if(loop == true){
+			ae7.loop();
+		}else{
+			ae7.play();
+		}
+	}
+	public void playAE8(boolean loop) throws SlickException{
+		Sound ae8 = new Sound("snd/Voice/AspEnemy/Moving.ogg");
+		if(loop == true){
+			ae8.loop();
+		}else{
+			ae8.play();
+		}
+	}
+	public void playAE9(boolean loop) throws SlickException{
+		Sound ae9 = new Sound("snd/Voice/AspEnemy/OnMyWay.ogg");
+		if(loop == true){
+			ae9.loop();
+		}else{
+			ae9.play();
+		}
+	}
+	public void playAspEnemyVoice(int s, boolean loop) throws SlickException{
+		Sound ae1 = new Sound("snd/Voice/AspEnemy/EnemyIdentified.ogg");
+		Sound ae2 = new Sound("snd/Voice/AspEnemy/Grenade.ogg");
+		Sound ae3 = new Sound("snd/Voice/AspEnemy/HesThere.ogg");
+		Sound ae4 = new Sound("snd/Voice/AspEnemy/IGotOne.ogg");
+		Sound ae5 = new Sound("snd/Voice/AspEnemy/ImHurt.ogg");
+		Sound ae6 = new Sound("snd/Voice/AspEnemy/IncomingProjectile.ogg");
+		Sound ae7 = new Sound("snd/Voice/AspEnemy/injured.ogg");
+		Sound ae8 = new Sound("snd/Voice/AspEnemy/Moving.ogg");
+		Sound ae9 = new Sound("snd/Voice/AspEnemy/OnMyWay.ogg");
+		switch(s){
+		case 1:
+			ae1.play();
+			if(loop == true){
+				ae1.loop();
+			}
+		}
+		case 2:
+			ae2.play();
+			if(loop == true){
+				ae2.loop();
+			}
+		
+		
+	}
+
+	// -- END --
+	
+	
+	
+}
